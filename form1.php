@@ -101,15 +101,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if($valid){
 
     $sql = "INSERT INTO students (name, email, number)
-            VALUES (:name, :email, :number)";
+            VALUES ('$name', '$email', '$number')";
 
-    $stmt = $conn->prepare($sql);
+    // $stmt = $conn->prepare($sql);
 
-    $stmt->bindParam(':name', $name);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':number', $number);
+    // $stmt->bindParam(':name', $name);
+    // $stmt->bindParam(':email', $email);
+    // $stmt->bindParam(':number', $number);
 
-    $stmt->execute();
+    $conn->exec($sql);
 
     echo "<h3 style='color:green'>Data inserted successfully</h3>";
 
