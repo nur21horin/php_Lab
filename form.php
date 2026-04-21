@@ -21,8 +21,9 @@
         </style>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         Name: <input type="text" name="name"><br><br>
+        <span class="error"><?php echo $nameERR; ?></span>
         EMail:<input type="email" name="email"><br>
         <br>
         Number: <input type="number" name="number"><br><br>
@@ -30,11 +31,33 @@
     </form>
 
     <?php 
-    echo "Name:".$_POST['name'];
-    echo "<br>";
-    echo "Email:" .$_POST['email'];
-    echo '<br>';
-    echo "Number:".$_POST['number'];
+    function test_data($data){
+        $data=trim($data);
+        $data=stripslashes($data);
+        $data=htmlspecialchars($data);
+        return $data;
+    }
+    $nama="";
+    $nameERR= "";
+    $email="";
+    $number="";
+
+    if($_SERVER["REQUEST_METHOD"]=="POST"){
+
+    if(empty($_POST["name"])){
+        $nameERR="Name is required";
+       
+    }else{
+        $name=test_data($_POST["name"]);
+    }
+    $email=test_data($_POST["email"]);
+    $number=test_data($_POST["number"]);
+
+    echo "Name: ".$name."<br>";
+    echo "Email: ".$email."<br>";
+    echo "Number: ".$number."<br>";
+    }
+   
     ?>
 
 </body>
