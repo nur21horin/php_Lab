@@ -1,6 +1,6 @@
 <?php
 include "connection.php";
-tyr{
+try{
     $sql="INSERT INTO students(name,email,course) VALUES('$name','$email','$course')";
     $conn->exec($sql);
     echo "Data inserted successfully";

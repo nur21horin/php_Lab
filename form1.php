@@ -122,6 +122,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 }
 ?>
+<tbody>
+<?php
+$sql = "SELECT * FROM students" ;
+$result = $conn->query($sql) ;
+if($result->rowCount() > 0){
+while($row = $result->fetch()){
+echo "<tr>";
+echo "<td>" . $row['id'] . "</td>";
+echo "<td>" . $row['name'] . "</td>";
+echo "<td>" . $row['email'] . "</td>";
+echo "<td>" . $row['number'] . "</td>";
+echo "</tr>";
+}
+"<br>";
+} else{
+echo "No records found";
+}
+?><br>
+</tbody><br>
 
 </body>
 </html>
