@@ -18,22 +18,27 @@
             color: black;
             border: 1px solid black;
         }
+        .error{
+            color: red;
+        }
         </style>
 </head>
 <body>
     <?php 
-     $nama="";
+     $name="";
     $nameERR= "";
-    $email=$emailERR="";
-    $number=$numberERR="";
+    $email="";
+    $emailERR="";
+    $number="";
+    $numberERR="";
     ?>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        Name: <input type="text" name="name"><br><br>
+        Name: <input type="text" name="name" value="<?php echo $name ;?>">
         <span class="error"><?php echo $nameERR; ?></span><br><br>
-        EMail:<input type="email" name="email"><br>
+        EMail:<input type="email" name="email" value="<?php echo $email;?>">
         <span class="error"><?php echo $emailERR;?></span><br><br>
         <br>
-        Number: <input type="number" name="number"><br><br>
+        Number: <input type="number" name="number" value="<?php echo $number; ?>">
         <span class="error"><?php echo $numberERR; ?></span><br><br>
         <input id="button" class="button1" type="submit"><br><br>
     </form>
