@@ -2,7 +2,6 @@
 // DB CONNECTION
 $conn = new PDO("mysql:host=localhost;dbname=college_db","root","");
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 // INSERT
 if(isset($_POST['insert'])){
     $name = htmlspecialchars($_POST['name']);
